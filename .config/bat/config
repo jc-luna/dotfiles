@@ -1,0 +1,4 @@
+--theme="base16"
+--map-syntax "*.luau:lua"
+--map-syntax "*.simconf:JSON"
+--map-syntax "*.enconf:JSON"
