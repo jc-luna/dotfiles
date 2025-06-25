@@ -42,21 +42,6 @@
 	#export TMUX_POWERLINE_MUTE_RIGHT_KEYBINDING="C-]"
 # }
 
-# air.sh {
-	# The data provider to use. Currently only "openweather" is supported.
-	export TMUX_POWERLINE_SEG_AIR_DATA_PROVIDER="openweather"
-	# How often to update the weather in seconds.
-	export TMUX_POWERLINE_SEG_AIR_UPDATE_PERIOD="600"
-	# Location of the JSON parser, jq
-	export TMUX_POWERLINE_SEG_AIR_JSON="jq"
-	# Your location
-	# Latitude and Longitude:
-	TMUX_POWERLINE_SEG_AIR_LAT=""
-	TMUX_POWERLINE_SEG_AIR_LON=""
-	# Your Open Weather API Key:
-	TMUX_POWERLINE_SEG_AIR_OPEN_WEATHER_API_KEY=""
-# }
-
 # battery.sh {
 	# How to display battery remaining. Can be {percentage, cute, hearts}.
 	export TMUX_POWERLINE_SEG_BATTERY_TYPE="percentage"
@@ -115,34 +100,6 @@
 	export TMUX_POWERLINE_SEG_GCALCLI_24HR_TIME_FORMAT="1"
 # }
 
-# github_notifications.sh {
-	# Github token (https://github.com/settings/tokens) with at least "notifications" scope
-	export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_TOKEN=""
-	# Include available notification reasons (https://docs.github.com/en/rest/activity/notifications?apiVersion=2022-11-28#about-notification-reasons),
-	# in the format "REASON:SEPARATOR"
-	# export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_REASONS="approval_requested:-󰴄 |assign:-󰎔 |author:-󰔗 |comment:- |ci_activity:-󰙨 |invitation:- |manual:-󱥃 |mention:- |review_requested:- |security_alert:-󰒃 |state_change:-󱇯 |subscribed:- |team_mention:- "
-	# Or if you don't like so many symbols, try the abbreviation variant
-	# export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_REASONS="approval_requested:areq|assign:as|author:au|comment:co|ci_activity:ci|invitation:in|manual:ma|mention:me|review_requested:rreq|security_alert:sec|state_change:st|subscribed:sub|team_mention:team"
-	# Use symbol mode (ignored if you set TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_REASONS yourself)
-	# export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_SYMBOL_MODE="yes"
-	# Summarize all notifications
-	# export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_SUMMARIZE="no"
-	# Hide if no notifications
-	# export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_HIDE_NO_NOTIFICATIONS="yes"
-	# Only show new notifications since date (default: today) (takes up to UPDATE_INTERVAL time to take effect)
-	# export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_SINCE="$(date +%Y-%m-%dT00:00:00Z)"
-	# Enable show only notifications since date (takes up to UPDATE_INTERVAL time to take effect)
-	# export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_SINCE_ENABLE="no"
-	# Maximum notifications to retreive per page (upstream github default per_page, 50)
-	# export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_PER_PAGE="50"
-	# Maximum pages to retreive
-	# export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_MAX_PAGES="10"
-	# Update interval to pull latest state from github api
-	# export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_UPDATE_INTERVAL="60"
-	# Enable Test Mode (to test how the segment will look like when you have notifications for all types/reasons)
-	# export TMUX_POWERLINE_SEG_GITHUB_NOTIFICATIONS_TEST_MODE="no"
-# }
-
 # hostname.sh {
 	# Use short or long format for the hostname. Can be {"short, long"}.
 	export TMUX_POWERLINE_SEG_HOSTNAME_FORMAT="short"
@@ -186,10 +143,6 @@
 	# export TMUX_POWERLINE_SEG_LAN_IP_SYMBOL="ⓛ "
 	# Symbol colour for LAN IP
 	# export TMUX_POWERLINE_SEG_LAN_IP_SYMBOL_COLOUR="255"
-# }
-
-# macos_notification_count.sh {
-
 # }
 
 # mailcount.sh {

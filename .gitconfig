@@ -1,6 +1,13 @@
 [core]
 	editor = nvim
 
+[merge]
+	tool = nvimdiff
+
+[alias]
+	batdiff = !git diff --name-only --relative --diff-filter=d | xargs batcat --diff
+	amend = commit --amend
+
 [url "git@gitlab.com:"]
 	insteadOf = "gl:"
 	pushInsteadOf = "gitlab:"
