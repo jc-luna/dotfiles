@@ -78,10 +78,10 @@ esac
 clear
 fastfetch --config ~/.config/fastfetch/config.jsonc
 
-source ~/.shextras/py.sh
-source ~/.shextras/path.sh
-source ~/.shextras/aliases.sh
-source ~/.shextras/pretty.sh
-source ~/.shextras/util.sh
+source ~/.shellstuff/py.sh
+source ~/.shellstuff/path.sh
+source ~/.shellstuff/aliases.sh
+source ~/.shellstuff/pretty.sh
+source ~/.shellstuff/util.sh
 
 eval "$(zoxide init bash)"
