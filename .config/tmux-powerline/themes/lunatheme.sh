@@ -63,19 +63,17 @@ fi
 # shellcheck disable=SC1143,SC2128
 if [ -z "$TMUX_POWERLINE_LEFT_STATUS_SEGMENTS" ]; then
 	TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
-		"tmux_session_info 13 0"
-		"hostname 12 0"
+		"tmux_session_info 1 0"
+		"hostname 4 0"
 	)
 fi
 
 # shellcheck disable=SC1143,SC2128
 if [ -z "$TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS" ]; then
 	TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
-		"pwd 255 0"
-		"load 12 0"
-		"date_day 235 136"
-		"date 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
-		"time 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
+		"pwd 235 255"
+		"date_day 235 5 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
+		"date 235 5 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
+		"time 235 5 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
 	)
 fi
-
