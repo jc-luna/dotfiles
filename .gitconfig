@@ -15,5 +15,6 @@
 [url "git@github.com:"]
 	insteadOf = "gh:"
 	pushInsteadOf = "github:"
+
 [init]
 	defaultBranch = main
