@@ -23,5 +23,4 @@ alias fzfoku="fzf --bind 'enter:become(okular {})'"
 # dotfiles: from https://www.atlassian.com/git/tutorials/dotfiles
 alias dotgit="/usr/bin/git --git-dir=$HOME/.dotfilegit --work-tree=$HOME"
 
-alias bat="batcat"
 alias cd="z"
