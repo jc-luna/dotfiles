@@ -1,3 +1,0 @@
-[submodule ".config/nvim"]
-	path = .config/nvim
-	url = git@gitlab.com:jc-luna/dotfiles.nvim
