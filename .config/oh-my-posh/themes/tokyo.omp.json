@@ -7,24 +7,26 @@
       "segments": [
 		{
 			"template": "[<#ffffff>{{.Icon}}</>",
-			"foreground": "#7eb8da",
+			//"foreground": "#7eb8da",
+			"foreground": "blue",
 			"type": "os",
 			"style": "plain"
 		},
         {
-          "foreground": "#7eb8da",
+          //"foreground": "#7eb8da",
+          "foreground": "blue",
           "style": "plain",
           "template": " {{ .UserName }}@{{ .HostName }}!]",
           "type": "session"
         },
         {
-          "foreground": "#ffa5d8",
+          "foreground": "red",
           "style": "diamond",
           "template": "[<#ffffff>\uea6c</> Error, check your command]",
           "type": "status"
         },
         {
-          "foreground": "#be9ddf",
+          "foreground": "#cba6f7",
           "properties": {
             "style": "dallas",
             "threshold": 0
@@ -40,28 +42,32 @@
     {
       "alignment": "left",
       "newline": true,
-      "leading_diamond": "<#7eb8da>\u2523</>",
+      "leading_diamond": "<blue>\u2523</>",
       "segments": [
         {
-          "foreground": "#7eb8da",
+          //"foreground": "#7eb8da",
+          "foreground": "blue",
           "style": "diamond",
           "template": "[<#ffffff>\uebd8</> Subscription: <#ffff00>{{ .Name }}</>]",
           "type": "az"
         },
         {
-          "foreground": "#7eb8da",
+          //"foreground": "#7eb8da",
+          "foreground": "blue",
           "style": "diamond",
           "template": "[<#ffffff>\uebd8</> Azure Developer CLI Environment: <#ffff00>{{ .DefaultEnvironment  }}</> :: <#ffff00>{{ .Version }}</>]",
           "type": "azd"
         },
         {
-          "foreground": "#7eb8da",
+          //"foreground": "#7eb8da",
+          "foreground": "blue",
           "style": "diamond",
           "template": "[<#ffffff>\uf270</> <#ffff00>{{ .Profile }}</>{{if .Region}}@<#ffff00>{{ .Region }}</>{{ end }}]",
           "type": "aws"
         },
         {
-          "foreground": "#7eb8da",
+          //"foreground": "#7eb8da",
+          "foreground": "blue",
           "style": "diamond",
           "template": "[{{ if .Error }}{{ .Error }}{{ else }}<#ffffff>\uf1a0</> <#ffff00>{{ .Project }}</> :: <#ffff00>{{.Account}}</>{{ end }}]",
           "type": "gcp"
@@ -84,15 +90,16 @@
     {
       "alignment": "left",
       "newline": true,
-      "leading_diamond": "<#7eb8da>\u2523</>",
+      "leading_diamond": "<blue>\u2523</>",
       "segments": [
         {
-          "foreground": "#7eb8da",
+          //"foreground": "#7eb8da",
+          "foreground": "blue",
           "properties": {
             "style": "full"
           },
           "style": "diamond",
-          "template": "[<#ffffff>\uf115</> <#98bfad>{{ .Path }}</>]",
+          "template": "[<#ffffff>\uf115</> <green>{{ .Path }}</>]",
           "type": "path"
         },
         {
@@ -112,7 +119,7 @@
     {
       "alignment": "left",
       "newline": true,
-      "leading_diamond": "<#7eb8da>\u2514\u2500</>",
+      "leading_diamond": "<blue>\u2514\u2500</>",
       "segments": [
         {
           "style": "diamond",
@@ -121,7 +128,7 @@
         },
         {
           "style": "diamond",
-          "template": ">",
+          "template": "\u25B6",
           "type": "text"
         }
       ],
