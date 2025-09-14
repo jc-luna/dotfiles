@@ -9,7 +9,8 @@ help:
 	@echo
 	@echo -e "LUNA DOTFILES\n"
 	@echo "make home:	Create or update symlinks to dotfiles in your home directory."
-	@echo "make all:	Create or update symlinks to dotfiles everywhere. Currently nonfunctional."
+	@echo "make sys:	Create or update symlinks to dotfiles in system directories. Currently nonfunctional."
+	@echo "make all:	Create or update symlinks to system and user dotfiles."
 	@echo "make force:	Create symlinks, overriding "
 	@echo "make clean:	Clean up all symlinks."
 	@echo "make help:	Display this dialog."
@@ -21,9 +22,14 @@ home:
 	stow --verbose --target=$$HOME --restow home
 	@echo "Done!"
 
+.PHONY: sys
+sys:
+	@echo "Creating systemwide symlinks... Not!"
+	@echo "Not actually doing anything here because there are no system dotfiles!"
+
 .PHONY: all
 all:
-	@echo "Creating symlinks everywhere. This actually isn't doing anything btw."
+	@echo "Creating symlinks everywhere. This actually isn't doing anything that make home doesn't do."
 	stow --verbose --target=$$HOME --restow home
 	@echo "Done! I think..."
 
