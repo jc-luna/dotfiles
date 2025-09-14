@@ -1,6 +1,3 @@
-# packages
-alias aptgrade="sudo apt update && sudo apt upgrade"
-
 # ls
 alias ls="ls --color=auto"
 alias ll="ls -l"
@@ -20,7 +17,5 @@ alias egrep="egrep --color=auto"
 alias fzfvim="fzf --bind 'enter:become(nvim {})'"
 alias fzfoku="fzf --bind 'enter:become(okular {})'"
 
-# dotfiles: from https://www.atlassian.com/git/tutorials/dotfiles
-alias dotgit="/usr/bin/git --git-dir=$HOME/.dotfilegit --work-tree=$HOME"
-
+# replace cd with zoxide
 alias cd="z"
