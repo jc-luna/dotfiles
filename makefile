@@ -1,13 +1,14 @@
 #######################################
-###									###
-###		LUNA DOTFILES MAKEFILE		###
-###									###
+###                                 ###
+###     LUNA DOTFILES MAKEFILE      ###
+###                                 ###
 #######################################
 
 .PHONY: help
 help:
 	@echo
-	@echo -e "LUNA DOTFILES\n"
+	@echo -e "LUNA DOTFILES"
+	@echo
 	@echo "make home:	Create or update symlinks to dotfiles in your home directory."
 	@echo "make sys:	Create or update symlinks to dotfiles in system directories. Currently nonfunctional."
 	@echo "make all:	Create or update symlinks to system and user dotfiles."
@@ -36,7 +37,11 @@ all:
 .PHONY: force
 force:
 	@echo "This will forcefully override matching files."
-	@read -p "Do you continue? (Y/n) " choosen; if [ $$choosen == "Y" ]; then echo "Overriding!" && stow --verbose --adopt --target=$$HOME --restow home; else echo "Aborting!"; fi
+	@read -p "Do you continue? (Y/n) " choosen;\
+		if [ $$choosen == "Y" ];\
+		then echo "Overriding!" && stow --verbose --adopt --target=$$HOME --restow home;\
+		else echo "Aborting!";\
+		fi
 
 .PHONY: clean
 clean:
