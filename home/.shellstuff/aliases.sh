@@ -19,3 +19,7 @@ alias fzfoku="fzf --bind 'enter:become(okular {})'"
 
 # replace cd with zoxide
 alias cd="z"
+
+# flatpaks
+alias codium="flatpak run com.vscodium.codium"
+alias gimp="flatpak run org.gimp.GIMP"
