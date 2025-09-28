@@ -11,17 +11,7 @@ To symlink dotfiles into your home directory:
 make home
 ```
 
-To symlink system dotfiles.... when I come to making some:
-```bash
-make sys
-```
-
-To symlink your home and system dotfiles:
-```bash
-make all
-```
-
-To forcefully override your home and system dotfiles:
+To forcefully override your dotfiles:
 ```bash
 make force
 ```
