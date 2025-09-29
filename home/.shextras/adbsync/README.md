@@ -31,4 +31,6 @@ forwards a port in adb,
 and creates an `rsyncd` config.
 
 ### `cleanup_rsyncd`
-Cleans up the temporary directory and kills the adb server.
+Unforwards ports,
+cleans up the temporary directory,
+and kills the adb server.
