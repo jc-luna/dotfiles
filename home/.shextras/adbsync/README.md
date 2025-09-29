@@ -30,7 +30,12 @@ namely `/data/local/tmp`,
 forwards a port in adb,
 and creates an `rsyncd` config.
 
-### `cleanup_rsyncd`
+### `serve_rsync.exp`
+Starts rsync in daemon mode on your phone
+and leaves you in an adb shell.
+Requries `expect`.
+
+### `cleanup_rsyncd.sh`
 Unforwards ports,
 cleans up the temporary directory,
 and kills the adb server.
