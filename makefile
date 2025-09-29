@@ -25,7 +25,7 @@ home:
 force:
 	@echo "This will forcefully override matching files."
 	@read -p "Do you continue? (Y/n) " choosen;\
-		if [ $$choosen == "Y" ];\
+		if [ $$choosen = "Y" ];\
 		then echo "Overriding!" && stow --verbose --adopt --target=$$HOME --restow home;\
 		else echo "Aborting!";\
 		fi
