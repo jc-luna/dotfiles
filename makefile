@@ -4,6 +4,14 @@
 ###                                 ###
 #######################################
 
+OTHER_STOW_OPTS =
+STOW_ACTION = --restow
+
+ifdef ADOPT
+	STOW_ACTION = --adopt 
+endif
+
+
 .PHONY: help
 help:
 	@echo
@@ -18,17 +26,9 @@ help:
 .PHONY: home
 home:
 	@echo "Creating symlinks in $$HOME"
-	stow --verbose --target=$$HOME --restow home
+	stow --verbose --target=$$HOME
+		$(OTHER_STOW_OPTS) $(STOW_ACTION) home
 	@echo "Done!"
-
-.PHONY: force
-force:
-	@echo "This will forcefully override matching files."
-	@read -p "Do you continue? (Y/n) " choosen;\
-		if [ $$choosen = "Y" ];\
-		then echo "Overriding!" && stow --verbose --adopt --target=$$HOME --restow home;\
-		else echo "Aborting!";\
-		fi
 
 .PHONY: clean
 clean:
@@ -36,13 +36,10 @@ clean:
 	stow --verbose --target=$$HOME --delete home
 	@echo "Done!"
 
-.PHONY: general
-general:
-	@echo "Linking various configuration files..."
-	stow --verbose --target=$$HOME --restow home
-
 .PHONY: bash
 bash:
-	@echo "Symlinking.. .bashrc"
-	stow --verbose --target=$$HOME --restow shell/bash/
+	@echo "Symlinking .bashrc..."
+	stow --verbose --target=$$HOME --dir=./shell \
+		$(OTHER_STOW_OPTS) $(STOW_ACTION) bash
+
 	
