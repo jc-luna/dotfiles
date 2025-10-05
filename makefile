@@ -9,7 +9,7 @@ help:
 	@echo
 	@echo -e "LUNA DOTFILES"
 	@echo
-	@echo "make home:	Create or update symlinks to dotfiles in your home directory."
+	@echo "make home:	Create or update symlinks to all dotfiles in your home directory."
 	@echo "make force:	Create symlinks, overriding ones that already exist."
 	@echo "make clean:	Clean up all symlinks."
 	@echo "make help:	Display this dialog."
@@ -35,3 +35,14 @@ clean:
 	@echo "Cleaning up all symlinks..."
 	stow --verbose --target=$$HOME --delete home
 	@echo "Done!"
+
+.PHONY: general
+general:
+	@echo "Linking various configuration files..."
+	stow --verbose --target=$$HOME --restow home
+
+.PHONY: bash
+bash:
+	@echo "Symlinking.. .bashrc"
+	stow --verbose --target=$$HOME --restow shell/bash/
+	
