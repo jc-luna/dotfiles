@@ -1,0 +1,9 @@
+#!/usr/bin/env expect
+
+# From https://stackoverflow.com/a/48565814
+
+spawn adb shell
+expect "#"
+send "cd /data/local/tmp\r"
+send "./rsync --daemon --no-detach --config=./rsyncd.conf --log-file=/proc/self/fd/2"
+interact
