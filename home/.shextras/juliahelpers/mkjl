@@ -1,0 +1,7 @@
+#!/usr/bin/env julia
+
+import Pkg
+
+if (size(ARGS)[1] < 1) error("mkjl requires a project name.") end
+
+Pkg.generate(String(ARGS[1]))
