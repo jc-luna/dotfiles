@@ -34,6 +34,7 @@ home:
 clean:
 	@echo "Cleaning up all symlinks..."
 	stow --verbose --target=$$HOME --delete home
+	stow --verbose --target=$$HOME --dir=./shell --delete bash
 	@echo "Done!"
 
 .PHONY: bash
@@ -42,4 +43,13 @@ bash:
 	stow --verbose --target=$$HOME --dir=./shell \
 		$(OTHER_STOW_OPTS) $(STOW_ACTION) bash
 
-	
+.PHONY: fastfetch
+fastfetch:
+ifndef FASTFETCH_CFG
+		@echo "You must specify a configuration! Valid ones are:"\
+		ls ./fastfetch\
+else
+		@echo "Symlinking given fastfetch config..."\
+		stow --verbose --target=$$HOME --dir=./fastfetch \
+		$(OTHER_STOW_OPTS) $(STOW_ACTION) $(FASTFETCH_CFG)\
+endif
