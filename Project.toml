@@ -1,0 +1,10 @@
+name = "Dotfiles"
+uuid = "2e448ca0-fb3e-44a3-960a-36d5e5d917b7"
+version = "0.1.0"
+authors = ["JC Luna <jc.lunaa@protonmail.com>"]
+
+[deps]
+ArgParse = "c7e460c6-2fb9-53a9-8c5b-16f535851c63"
+
+[compat]
+ArgParse = "1.2.0"

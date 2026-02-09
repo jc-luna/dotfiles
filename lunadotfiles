@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# this is just a way for me to run Deploy.jl without worrying about paths issues
+julia -O0 --startup-file=no ./src/Deploy.jl $@
