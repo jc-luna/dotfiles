@@ -1,4 +1,4 @@
-using Pkg: activate; Pkg.activate(joinpath(@__DIR__, ".."))
+using Pkg: activate; activate(joinpath(@__DIR__, ".."))
 
 using Dotfiles
 

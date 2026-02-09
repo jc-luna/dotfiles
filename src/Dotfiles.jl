@@ -65,7 +65,7 @@ end
 function ParseCLIArgs()
 	argsettings = ArgParseSettings()
 	argsettings.prog = "./deploy"
-	argsettings.description = "Luna Dotfiles Deploy Script"
+	argsettings.description = "Luna Dotfiles Management Script"
 
 	@add_arg_table! argsettings begin
 		"action"
