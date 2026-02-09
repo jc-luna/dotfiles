@@ -1,22 +1,31 @@
 # LUNA DOTFILES
-
-My dotfiles!
-
 ## Operation
-This is controlled by a makefile and `stow`.
-Display a help dialog by running `make` without arguments or explictly with `make help`.
+This uses Julia and stow.
 
-To symlink dotfiles into your home directory:
-```bash
-make home
+For help:
+```sh
+./lunadotfiles --help
 ```
 
-To forcefully override your dotfiles:
-```bash
-make force
+For various application-specific configuration files:
+```sh
+./lunadotfiles deploy home
 ```
 
-To clean up symlinks from your home directories:
-```bash
-make clean
+For specific shell configuration files, like zsh, for example:
+```sh
+./lunadotfiles deploy zsh
 ```
+
+For the Julia config:
+```sh
+./lunadotfiles deploy julia
+```
+
+For the fetch, like the default Arch Linux one, for example:
+```sh
+./lunadotfiles deploy fastfetch archdefault
+```
+
+Cleanup is done with `./lunadotfiles clean TARGET SUBTARGET`.
+Other utilities that I use are in `extra`.
