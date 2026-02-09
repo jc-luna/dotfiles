@@ -1,3 +1,7 @@
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.cargo/bin
-export PATH=$PATH:/usr/local/texlive/2025/bin/x86_64-linux
+export PATH=$PATH:~/.juliaup/bin
+
+if [ -e ~/.shpathextras ]; then
+	source ~/.shpathextras
+fi
