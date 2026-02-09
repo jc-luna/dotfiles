@@ -25,3 +25,11 @@ export PYENV_ROOT="$HOME/.pyenv"
 
 eval "$(pyenv init - zsh)"
 eval "$(zoxide init zsh)"
+
+function chpwd() {
+	if [[ -e .chpwd.zsh.d ]]; then
+		for f in .chpwd.zsh.d/*.sh; do
+			source $f
+		done
+	fi
+}
