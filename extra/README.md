@@ -5,3 +5,6 @@ Mostly meant to be for reference.
 
 ## `adbsync`
 Helpful scripts for using `rsync` with `adb`.
+
+## `juliahelpers`
+Helpful Julia workflows stuff.
