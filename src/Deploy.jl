@@ -9,14 +9,22 @@ function @main(ARGS)
 	subtarget = parsed["subtarget"]
 
 	println("$action-ing on $target and $subtarget")
-
 	lctarget = lowercase(target)
-	stowTarget = StowTargets[lctarget]
 
 	if (action == "deploy")
-		Deploy(stowTarget, true, true)
+		if (target == "fastfetch")
+			DeployFetch(subtarget, true, true)
+		else
+			stowTarget = StowTargets[lctarget]
+			Deploy(stowTarget, true, true)
+		end
 	elseif (action == "clean")
-		Clean(stowTarget, true)
+		if (target == "fastfetch")
+			DeployFetch(subtarget, true)
+		else
+			stowTarget = StowTargets[lctarget]
+			Clean(stowTarget, true)
+		end
 	end
 
 	return 0

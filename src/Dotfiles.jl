@@ -6,6 +6,7 @@ export DOTFILES_ROOT
 export ParseCLIArgs
 export DeployCommand, CleanCommand
 export Deploy, Clean
+export DeployFetch, CleanFetch
 export StowTarget, StowTargets
 
 const DOTFILES_ROOT = joinpath(@__DIR__, "..")
@@ -16,21 +17,27 @@ struct StowTarget
 end
 
 StowTargets = Dict(
-"home" => StowTarget(
-	abspath(joinpath(DOTFILES_ROOT, "home")),
-	abspath(joinpath(DOTFILES_ROOT, expanduser("~")))),
-"bash" => StowTarget(
-	abspath(joinpath(DOTFILES_ROOT, "shell", "bash")),
-	abspath(joinpath(DOTFILES_ROOT, expanduser("~")))),
-"zsh" => StowTarget(
-	abspath(joinpath(DOTFILES_ROOT, "shell", "zsh")),
-	abspath(expanduser("~"))),
-"rcextras" => StowTarget(
-	abspath(joinpath(DOTFILES_ROOT, "shell", "rcextras")),
-	abspath(expanduser("~/.rcextras"))),
-"fastfetch" => StowTarget(
-	abspath(joinpath(DOTFILES_ROOT, "fastfetch")),
-	abspath(expanduser(joinpath("~/.config/fastfetch"))))
+	"home" => StowTarget(
+		abspath(joinpath(DOTFILES_ROOT, "home")),
+		abspath(joinpath(DOTFILES_ROOT, expanduser("~")))),
+	"bash" => StowTarget(
+		abspath(joinpath(DOTFILES_ROOT, "shell", "bash")),
+		abspath(joinpath(DOTFILES_ROOT, expanduser("~")))),
+	"zsh" => StowTarget(
+		abspath(joinpath(DOTFILES_ROOT, "shell", "zsh")),
+		abspath(expanduser("~"))),
+	"rcextras" => StowTarget(
+		abspath(joinpath(DOTFILES_ROOT, "shell", "rcextras")),
+		abspath(expanduser("~/.rcextras"))),
+	"julia" => StowTarget(
+		abspath(joinpath(DOTFILES_ROOT, "julia")),
+		abspath(expanduser("~/.julia/config"))),
+)
+
+Fetches = Dict(
+	"archdefault" => StowTarget(
+		abspath(joinpath(DOTFILES_ROOT, "fastfetch", "archdefault")),
+		abspath(expanduser(joinpath("~/.config/fastfetch"))))
 )
 
 function DeployCommand(stowTarget, forceful=false)
@@ -43,6 +50,15 @@ function DeployCommand(stowTarget, forceful=false)
 end
 
 function Deploy(stowTarget, verbose=false, forceful=false)
+	mkpath(stowTarget.To)
+	commander = DeployCommand(stowTarget, forceful)
+	if (verbose) println(commander) end
+	run(commander)
+end
+
+function DeployFetch(fetchName, verbose=false, forceful=false)
+	stowTarget = Fetches[fetchName]
+	mkpath(stowTarget.To)
 	commander = DeployCommand(stowTarget, forceful)
 	if (verbose) println(commander) end
 	run(commander)
@@ -58,6 +74,14 @@ end
 
 function Clean(stowTarget, verbose=false)
 	commander = CleanCommand(stowTarget, verbose)
+	if (verbose) println(commander) end
+	run(commander)
+end
+
+function CleanFetch(fetchName, verbose=false)
+	stowTarget = Fetches[fetchName]
+	mkpath(stowTarget.To)
+	commander = CleanFetch(stowTarget, verbose)
 	if (verbose) println(commander) end
 	run(commander)
 end
