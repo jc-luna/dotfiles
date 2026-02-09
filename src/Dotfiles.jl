@@ -25,6 +25,9 @@ StowTargets = Dict(
 "zsh" => StowTarget(
 	abspath(joinpath(DOTFILES_ROOT, "shell", "zsh")),
 	abspath(expanduser("~"))),
+"rcextras" => StowTarget(
+	abspath(joinpath(DOTFILES_ROOT, "shell", "rcextras")),
+	abspath(expanduser("~/.rcextras"))),
 "fastfetch" => StowTarget(
 	abspath(joinpath(DOTFILES_ROOT, "fastfetch")),
 	abspath(expanduser(joinpath("~/.config/fastfetch"))))

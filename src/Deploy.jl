@@ -14,7 +14,7 @@ function @main(ARGS)
 	stowTarget = StowTargets[lctarget]
 
 	if (action == "deploy")
-		Deploy(stowTarget, true)
+		Deploy(stowTarget, true, true)
 	elseif (action == "clean")
 		Clean(stowTarget, true)
 	end

@@ -10,8 +10,8 @@ autoload -Uz compinit
 compinit
 
 clear
-source ~/.shellstuff/path.sh
-source ~/.shellstuff/aliases.sh
+source ~/.rcextras/path.sh
+source ~/.rcextras/aliases.sh
 
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
 	tmux new-session
