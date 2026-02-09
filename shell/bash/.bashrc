@@ -25,10 +25,10 @@ shopt -s checkwinsize
 clear
 fastfetch --config ~/.config/fastfetch/config.jsonc
 
-source ~/.shellstuff/py.sh
-source ~/.shellstuff/path.sh
-source ~/.shellstuff/aliases.sh
-source ~/.shellstuff/pretty.sh
-source ~/.shellstuff/util.sh
+source ~/.rcextras/py.sh
+source ~/.rcextras/path.sh
+source ~/.rcextras/aliases.sh
+source ~/.rcextras/pretty.sh
+source ~/.rcextras/util.sh
 
 eval "$(zoxide init bash)"

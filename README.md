@@ -16,7 +16,7 @@ To forcefully override your dotfiles:
 make force
 ```
 
-To clean up symlinks from your home and system directories:
+To clean up symlinks from your home directories:
 ```bash
 make clean
 ```
