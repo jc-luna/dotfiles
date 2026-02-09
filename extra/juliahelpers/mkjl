@@ -1,4 +1,4 @@
-#!/usr/bin/env julia
+#!/usr/bin/env -S julia -O0 --startup-file=no
 
 import Pkg
 
