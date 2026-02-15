@@ -20,7 +20,11 @@ function @main(ARGS)
 		end
 	elseif (action == "clean")
 		if (target == "fastfetch")
-			DeployFetch(subtarget, true)
+			CleanFetch(subtarget, true)
+		elseif (target == "all")
+			for (name, tgt) in pairs(StowTargets)
+				Clean(tgt, true)
+			end
 		else
 			stowTarget = StowTargets[lctarget]
 			Clean(stowTarget, true)
