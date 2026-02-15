@@ -7,12 +7,14 @@ export ParseCLIArgs
 export DeployCommand, CleanCommand
 export Deploy, Clean
 export DeployFetch, CleanFetch
+export DeployPrompt, CleanPrompt
 export StowTarget, StowTargets
 
 const DOTFILES_ROOT = joinpath(@__DIR__, "..")
 const HOME_DOTFILES = joinpath(DOTFILES_ROOT, "home")
 const SHELL_DOTFILES = joinpath(DOTFILES_ROOT, "shell")
 const AESTHETIC_DOTFILES = joinpath(DOTFILES_ROOT, "aesthetic")
+const PROMPT_DOTFILES = joinpath(AESTHETIC_DOTFILES, "prompt")
 
 struct StowTarget
 	Target
@@ -42,8 +44,19 @@ StowTargets = Dict(
 
 Fetches = Dict(
 	"archdefault" => StowTarget(
-		abspath(joinpath(DOTFILES_ROOT, "aesthetic", "fetch", "archdefault")),
+		abspath(joinpath(AESTHETIC_DOTFILES, "fetch", "archdefault")),
 		abspath(expanduser(joinpath("~/.config/fastfetch"))))
+)
+
+Prompts = Dict(
+	"tokyo" => StowTarget(
+		abspath(joinpath(PROMPT_DOTFILES, "tokyo")),
+		abspath(expanduser("~/.config/oh-my-posh/themes"))
+	),
+	"macchiato" => StowTarget(
+		abspath(joinpath(PROMPT_DOTFILES, "catppuccin_macchiato")),
+		abspath(expanduser("~/.config/oh-my-posh/themes"))
+	)
 )
 
 function DeployCommand(stowTarget, forceful=false)
@@ -70,6 +83,14 @@ function DeployFetch(fetchName, verbose=false, forceful=false)
 	run(commander)
 end
 
+function DeployPrompt(themeName, verbose=false, forceful=false)
+	stowTarget = Prompts[themeName]
+	mkpath(stowTarget.To)
+	commander = DeployCommand(stowTarget, forceful)
+	if (verbose) println(commander) end
+	run(commander)
+end
+
 function CleanCommand(stowTarget, verbose=false)
 	wheredir = dirname(stowTarget.Target)
 	whichone = basename(stowTarget.Target)
@@ -88,6 +109,14 @@ function CleanFetch(fetchName, verbose=false)
 	stowTarget = Fetches[fetchName]
 	mkpath(stowTarget.To)
 	commander = CleanFetch(stowTarget, verbose)
+	if (verbose) println(commander) end
+	run(commander)
+end
+
+function CleanPrompt(themeName, verbose=false)
+	stowTarget = Prompts[themeName]
+	mkpath(stowTarget.To)
+	commander = CleanPrompt(stowTarget, verbose)
 	if (verbose) println(commander) end
 	run(commander)
 end

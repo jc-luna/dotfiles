@@ -17,7 +17,7 @@ if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
 	tmux new-session
 else
 	fastfetch --config ~/.config/fastfetch/config.jsonc
-	eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/themes/tokyo.omp.json)"
+	eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/themes/config.omp.json)"
 fi
 
 export PYENV_ROOT="$HOME/.pyenv"
