@@ -10,6 +10,9 @@ export DeployFetch, CleanFetch
 export StowTarget, StowTargets
 
 const DOTFILES_ROOT = joinpath(@__DIR__, "..")
+const HOME_DOTFILES = joinpath(DOTFILES_ROOT, "home")
+const SHELL_DOTFILES = joinpath(DOTFILES_ROOT, "shell")
+const AESTHETIC_DOTFILES = joinpath(DOTFILES_ROOT, "aesthetic")
 
 struct StowTarget
 	Target
@@ -17,26 +20,29 @@ struct StowTarget
 end
 
 StowTargets = Dict(
+	"config" => StowTarget(
+		abspath(joinpath(HOME_DOTFILES, "config")),
+		abspath(joinpath(expanduser("~/.config")))),
 	"home" => StowTarget(
-		abspath(joinpath(DOTFILES_ROOT, "home")),
-		abspath(joinpath(DOTFILES_ROOT, expanduser("~")))),
+		abspath(joinpath(HOME_DOTFILES, "root")),
+		abspath(joinpath(expanduser("~")))),
 	"bash" => StowTarget(
-		abspath(joinpath(DOTFILES_ROOT, "shell", "bash")),
-		abspath(joinpath(DOTFILES_ROOT, expanduser("~")))),
+		abspath(joinpath(SHELL_DOTFILES, "bash")),
+		abspath(joinpath(expanduser("~")))),
 	"zsh" => StowTarget(
-		abspath(joinpath(DOTFILES_ROOT, "shell", "zsh")),
+		abspath(joinpath(SHELL_DOTFILES, "zsh")),
 		abspath(expanduser("~"))),
 	"rcextras" => StowTarget(
-		abspath(joinpath(DOTFILES_ROOT, "shell", "rcextras")),
+		abspath(joinpath(SHELL_DOTFILES, "rcextras")),
 		abspath(expanduser("~/.rcextras"))),
 	"julia" => StowTarget(
-		abspath(joinpath(DOTFILES_ROOT, "julia")),
+		abspath(joinpath(DOTFILES_ROOT, "home", "julia")),
 		abspath(expanduser("~/.julia/config"))),
 )
 
 Fetches = Dict(
 	"archdefault" => StowTarget(
-		abspath(joinpath(DOTFILES_ROOT, "fastfetch", "archdefault")),
+		abspath(joinpath(DOTFILES_ROOT, "aesthetic", "fetch", "archdefault")),
 		abspath(expanduser(joinpath("~/.config/fastfetch"))))
 )
 
